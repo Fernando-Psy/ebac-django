@@ -1,8 +1,6 @@
-# test_models.py
-
 import pytest
 from django.utils import timezone
-from core.models import Post  # Importe seu modelo real
+from core.models import Post
 
 @pytest.mark.django_db
 def test_post_creation(post_factory):
