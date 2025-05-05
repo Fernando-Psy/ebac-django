@@ -2,7 +2,7 @@ import pytest
 from factory.django import DjangoModelFactory
 import factory
 from django.contrib.auth.models import User
-from core.models import Post  # Certifique-se de usar o import correto para seu modelo
+from core.models import Post
 
 
 # -------------------------------
@@ -10,6 +10,7 @@ from core.models import Post  # Certifique-se de usar o import correto para seu 
 class UserFactory(DjangoModelFactory):
     class Meta:
         model = User
+        skip_postgeneration_save = True
 
     username = factory.Sequence(lambda n: f"user{n}")
     email = factory.LazyAttribute(lambda obj: f"{obj.username}@example.com")
@@ -24,7 +25,7 @@ class PostFactory(DjangoModelFactory):
     slug = factory.Faker('slug')
     author = factory.SubFactory(UserFactory)
     body = factory.Faker('paragraph')
-    status = 0  # Valor padrão correto
+    status = 0
 
 # -------------------------------
 
