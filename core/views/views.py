@@ -1,6 +1,11 @@
 from django.http import HttpResponse
 from django.views import generic
+from core.models.models import Post
 
-class HomeView(generic.View):
-    def get(self, request):
-        return HttpResponse("Hello, world! This is the home page.")
+class HomeView(generic.ListView):
+    queryset = Post.objects.filter(status=1).order_by('-created')
+    template_name = 'home.html'
+
+class PostDetail(generic.DetailView):
+    model = Post
+    template_name = 'post_detail.html'
