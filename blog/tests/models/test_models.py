@@ -1,6 +1,6 @@
 import pytest
 from django.utils import timezone
-from core.models import Post
+from blog.models import Post
 
 @pytest.mark.django_db
 def test_post_creation(post_factory):
