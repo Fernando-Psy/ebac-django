@@ -1,5 +1,5 @@
 import pytest
-from core.views.views import HomeView
+from blog.views.views import HomeView
 from django.urls import reverse
 from django.test import Client
 

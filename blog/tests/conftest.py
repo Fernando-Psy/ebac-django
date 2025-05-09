@@ -2,7 +2,7 @@ import pytest
 from factory.django import DjangoModelFactory
 import factory
 from django.contrib.auth.models import User
-from core.models import Post
+from blog.models import Post
 
 
 # -------------------------------
