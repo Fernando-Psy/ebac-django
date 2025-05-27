@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Meu Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    </head>
+<body>
+    <!-- Header -->
+    <header class="hero-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <i class="fas fa-blog me-2"></i>Meu Blog
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">
+                                <i class="fas fa-home me-1"></i>Início
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sobre">
+                                <i class="fas fa-user me-1"></i>Sobre
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contato">
+                                <i class="fas fa-envelope me-1"></i>Contato
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            {% block content %}
+            <!-- Home Page Content -->
+            <h1 class="page-title">Últimos Posts</h1>
+
+            <div class="row">
+                <!-- Simulação de posts para demonstração -->
+                <div class="col-lg-8 mx-auto">
+                    <article class="post-card">
+                        <div class="post-header">
+                            <h2>
+                                <a href="#" class="post-title">Como Criar um Blog com Django</a>
+                            </h2>
+                            <div class="post-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-user"></i>
+                                    Por Admin
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-calendar"></i>
+                                    27 de Maio, 2025
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    5 min de leitura
+                                </span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-excerpt">
+                                Aprenda a criar um blog completo usando Django, desde a configuração inicial até a implementação de funcionalidades avançadas. Este guia aborda models, views, templates e muito mais.
+                            </p>
+                            <a href="#" class="read-more-btn">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-header">
+                            <h2>
+                                <a href="#" class="post-title">Melhores Práticas para Templates Django</a>
+                            </h2>
+                            <div class="post-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-user"></i>
+                                    Por Admin
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-calendar"></i>
+                                    25 de Maio, 2025
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    3 min de leitura
+                                </span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-excerpt">
+                                Descubra as melhores práticas para criar templates Django eficientes, reutilizáveis e bem estruturados. Aprenda sobre herança de templates, tags personalizadas e otimização.
+                            </p>
+                            <a href="#" class="read-more-btn">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Estado vazio (quando não há posts) -->
+                    <!--
+                    <div class="empty-state">
+                        <i class="fas fa-edit"></i>
+                        <h3>Nenhum post encontrado</h3>
+                        <p>Ainda não há posts publicados. Volte em breve!</p>
+                    </div>
+                    -->
+                </div>
+            </div>
+            {% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/Fernando-Psy"  target="_blank"><i class="fab fa-github me-1"></i>GitHub</a>
+                    <a href="https://www.linkedin.com/in/fernando-cesar-botelho-junior/" target="_blank"><i class="fab fa-linkedin me-1"></i>LinkedIn</a>
+                </div>
+                <p>&copy; 2025 Meu Blog. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
