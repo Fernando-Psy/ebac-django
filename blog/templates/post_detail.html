@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }} - Meu Blog{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <article class="post-detail">
+            <header class="post-detail-header">
+                <h1 class="post-detail-title">{{ post.title }}</h1>
+                <div class="post-detail-meta">
+                    <span class="meta-item">
+                        <i class="fas fa-user"></i>
+                        Por {{ post.author.username }}
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-calendar"></i>
+                        {{ post.created|date:"d \d\e F, Y" }}
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        {{ post.update_on|date:"d/m/Y \à\s H:i" }}
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-eye"></i>
+                        {% widthratio post.body|length 250 1 %} min de leitura
+                    </span>
+                </div>
+            </header>
+
+            <div class="post-detail-body">
+                {{ post.body|linebreaks }}
+            </div>
+
+            <nav class="post-navigation">
+                <a href="{% url 'home' %}" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Voltar aos posts
+                </a>
+            </nav>
+        </article>
+    </div>
+</div>
+{% endblock %}
